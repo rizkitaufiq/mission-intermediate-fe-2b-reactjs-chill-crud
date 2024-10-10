@@ -1,4 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 import InputLabel from "../../molecules/InputField/InputLabel";
 import ButtonSubmit from "../../atoms/Button/ButtonSubmit";
@@ -8,10 +10,25 @@ import EyesIcon from "../../../assets/images/auth/eye-off.svg";
 import SSOIcon from "../../../assets/images/auth/sso-icon.svg";
 
 const LoginForm = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    navigate("/beranda");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(
+      (user) => user.username === username && user.password === password
+    );
+
+    if (user) {
+      toast.success("Akun berhasil masuk!");
+      localStorage.setItem("authToken", "fake-jwt-token");
+      navigate("/beranda");
+    } else {
+      toast.error("Username dan password salah!");
+    }
   };
 
   return (
@@ -35,7 +52,10 @@ const LoginForm = () => {
             name="username"
             label="Username"
             type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             placeholder="Masukan username"
+            autoComplete="username"
           />
 
           <div className="relative">
@@ -45,7 +65,10 @@ const LoginForm = () => {
               name="password"
               label="Kata Sandi"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Masukan kata sandi"
+              autoComplete="new-password"
             />
             <img
               src={EyesIcon}
