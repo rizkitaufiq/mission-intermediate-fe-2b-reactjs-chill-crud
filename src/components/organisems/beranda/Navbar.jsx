@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import { toast } from "react-toastify";
 
 import Logo from "../../../assets/images/beranda/icon/logo.svg";
 import Avatar from "../../../assets/images/beranda/avatar.png";
@@ -10,6 +11,8 @@ const Navbar = () => {
     { name: "Film", path: "/beranda" },
     { name: "Daftar Saya", path: "/beranda" },
   ];
+
+  const navigate = useNavigate();
 
   const [isDropDownOpen, setDropDownOpen] = useState(false);
   const dropDownRef = useRef(null);
@@ -30,6 +33,12 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   });
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    toast.success("Akun berhasil keluar!");
+    navigate("/");
+  };
 
   return (
     <div>
@@ -98,9 +107,10 @@ const Navbar = () => {
                 </div>
               </Link>
 
-              <Link
-                to="/"
-                className="block px-4 py-2 text-gray-800 hover:text-textPrimary focus:text-textPrimary"
+              <a
+                type="button"
+                onClick={handleLogout}
+                className="cursor-pointer block px-4 py-2 text-gray-800 hover:text-textPrimary focus:text-textPrimary"
               >
                 <div className="flex column">
                   <svg
@@ -118,7 +128,7 @@ const Navbar = () => {
                   </svg>
                   Keluar
                 </div>
-              </Link>
+              </a>
             </div>
           )}
         </div>
