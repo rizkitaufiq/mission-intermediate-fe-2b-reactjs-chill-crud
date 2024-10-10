@@ -1,4 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 import InputLabel from "../../molecules/InputField/InputLabel";
 import ButtonSubmit from "../../atoms/Button/ButtonSubmit";
@@ -8,10 +10,30 @@ import EyesIcon from "../../../assets/images/auth/eye-off.svg";
 import SSOIcon from "../../../assets/images/auth/sso-icon.svg";
 
 const RegisterForm = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    navigate("/");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      toast.error("Passowrd tidak sama");
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const isUserExist = users.some((user) => user.username === username);
+
+    if (isUserExist) {
+      toast.error("Username sudah ada !");
+    } else {
+      users.push({ username, password });
+      localStorage.setItem("users", JSON.stringify(users));
+      toast.success("Daftar akun berhasil");
+      navigate("/");
+    }
   };
 
   return (
@@ -35,7 +57,10 @@ const RegisterForm = () => {
             name="username"
             label="Username"
             type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             placeholder="Masukan username"
+            autoComplete="username"
           />
 
           <div className="relative">
@@ -45,7 +70,10 @@ const RegisterForm = () => {
               name="password"
               label="Kata Sandi"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Masukan kata sandi"
+              autoComplete="new-password"
             />
             <img
               src={EyesIcon}
@@ -61,7 +89,10 @@ const RegisterForm = () => {
               name="confirmPassword"
               label="Konfirmasi Kata Sandi"
               type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Masukan kata sandi"
+              autoComplete="new-password"
             />
             <img
               src={EyesIcon}

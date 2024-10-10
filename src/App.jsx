@@ -1,11 +1,11 @@
-import Router from "./routers"
+import Router from "./routers";
 
 const App = () => {
   return (
-      <div>
-        <Router />
-      </div>
-  )
-}
+    <div>
+      <Router />
+    </div>
+  );
+};
 
-export default App
+export default App;
