@@ -1,4 +1,4 @@
-import Navbar from "../components/organisems/beranda/Navbar";
+import Navbar from "../components/organisems/body/Navbar";
 import MyProfil from "../components/organisems/profil/myProfil";
 
 const Profil = () => {

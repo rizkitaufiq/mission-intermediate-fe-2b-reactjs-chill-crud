@@ -1,10 +1,10 @@
-import Navbar from "../components/organisems/beranda/Navbar";
+import Navbar from "../components/organisems/body/Navbar";
 import Hero from "../components/organisems/beranda/Hero";
 import Watching from "../components/organisems/beranda/Watching";
 import Rating from "../components/organisems/beranda/Rating";
 import Trending from "../components/organisems/beranda/Trending";
 import Realese from "../components/organisems/beranda/Realese";
-import Footer from "../components/organisems/beranda/Footer";
+import Footer from "../components/organisems/body/Footer";
 
 const Beranda = () => {
   return (
