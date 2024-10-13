@@ -44,8 +44,9 @@ const Navbar = () => {
     <div>
       <header className="flex justify-between items-center text-center text-white text-xs md:text-lg p-6 w-full">
         <nav className="flex gap-2 md:gap-10">
-          <img src={Logo} alt="image" className="w-[45px] md:w-[103.55px]" />
-
+          <Link to="/beranda">
+            <img src={Logo} alt="image" className="w-[45px] md:w-[103.55px]" />
+          </Link>
           <div className="flex justify-start items-center gap-[12px] md:gap-[80px]">
             {menu.map((item, index) => (
               <p key={index} className="hover:text-textPrimary">
