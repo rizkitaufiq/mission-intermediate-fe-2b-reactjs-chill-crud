@@ -1,0 +1,31 @@
+[
+    {
+      "poster": "images/beranda/content/little-mermaid.png",
+      "status": "",
+      "trending": "Top 10"
+    },
+
+    {
+      "poster": "images/beranda/content/duty-after-school.png",
+      "status": "Episode Baru",
+      "trending": ""
+    },
+
+    {
+      "poster": "images/beranda/content/big-hero-6.png",
+      "status": "",
+      "trending": "Top 10"
+    },
+
+    {
+      "poster": "images/beranda/content/all-of-us-are-dead.png",
+      "status": "Episode Baru",
+      "trending": ""
+    },
+
+    {
+      "poster": "images/beranda/content/missing.png",
+      "status": "",
+      "trending": "Top 10"
+    }
+  ]

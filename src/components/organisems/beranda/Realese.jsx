@@ -1,9 +1,19 @@
-import newRelease from "../../../store/beranda/newRelease";
+import { useState, useEffect } from "react";
+
+// import newRelease from "../../../store/beranda/newRelease";
+import newRelease from "../../../databases/beranda/newRelease.json";
+
 import rightArrow from "../../../assets/images/beranda/icon/right-arrow.svg";
 import leftArrow from "../../../assets/images/beranda/icon/left-arrow.svg";
 
 const Realese = () => {
-  const { movies } = newRelease();
+  // const { movies } = newRelease();
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    setMovies(newRelease);
+  }, []);
+
   return (
     <div>
       <section className="relative p-2 text-white overflow-hidden">
