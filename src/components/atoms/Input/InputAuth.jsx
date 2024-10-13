@@ -8,7 +8,7 @@ const InputAuth = (props) => {
         type={type}
         value={value}
         onChange={onChange}
-        className="text-sm text-white border border-solid border-default placeholder-gray placeholder-sm w-full bg-transparent rounded-3xl mb-2 p-2 pl-4"
+        className="text-sm text-white border border-solid border-default placeholder-gray placeholder-sm w-full focus:outline-none bg-transparent rounded-3xl mb-2 p-2 pl-4"
         placeholder={placeholder}
         autoComplete={autoComplete}
         required

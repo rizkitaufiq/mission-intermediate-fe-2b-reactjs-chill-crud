@@ -63,7 +63,7 @@ const Navbar = () => {
           {isDropDownOpen && (
             <div className="absolute right-0 top-10 w-48 bg-mainBG rounded-[2px] z-10">
               <Link
-                to="/beranda"
+                to="/profil"
                 className="block px-4 py-2 text-gray-800 hover:text-textPrimary hover:bg-blue focus:text-textPrimary"
                 tabIndex="0"
               >

@@ -23,8 +23,8 @@ const LoginForm = () => {
     );
 
     if (user) {
+      localStorage.setItem("loginUser", JSON.stringify(user));
       toast.success("Akun berhasil masuk!");
-      localStorage.setItem("authToken", "fake-jwt-token");
       navigate("/beranda");
     } else {
       toast.error("Username dan password salah!");

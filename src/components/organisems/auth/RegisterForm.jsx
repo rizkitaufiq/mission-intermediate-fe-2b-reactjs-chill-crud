@@ -11,15 +11,20 @@ import SSOIcon from "../../../assets/images/auth/sso-icon.svg";
 
 const RegisterForm = () => {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setEmail(e.target.value); // Memperbarui state email dengan benar
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      toast.error("Passowrd tidak sama");
+      toast.error("Password tidak sama");
       return;
     }
 
@@ -29,7 +34,7 @@ const RegisterForm = () => {
     if (isUserExist) {
       toast.error("Username sudah ada !");
     } else {
-      users.push({ username, password });
+      users.push({ username, email, password });
       localStorage.setItem("users", JSON.stringify(users));
       toast.success("Daftar akun berhasil");
       navigate("/");
@@ -61,6 +66,18 @@ const RegisterForm = () => {
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Masukan username"
             autoComplete="username"
+          />
+
+          <InputLabel
+            htmlFor="username"
+            id="email"
+            name="email"
+            label="Email"
+            type="email"
+            value={email}
+            onChange={handleChange}
+            placeholder="Masukan email"
+            autoComplete="email"
           />
 
           <div className="relative">
