@@ -30,7 +30,7 @@ const MyList = () => {
             Daftar Saya
           </h3>
 
-          <div className="relative flex flex-wrap gap-2 md:gap-5 mb-4 w-full overflow-scroll md:overflow-hidden">
+          <div className="relative flex flex-wrap gap-2 md:gap-5 mb-4 w-full max-h-[300px] lg:max-h-max overflow-y-scroll md:overflow-hidden">
             {movies.map((movie) => (
               <div key={movie.id} className="relative w-1/7">
                 <div className="w-[95px] lg:w-[200px] h-[145px] lg:h-[300px]">
@@ -39,9 +39,9 @@ const MyList = () => {
 
                 <button
                   onClick={() => handleRemoveFromMyList(movie.id)}
-                  className="z-10 cursor-pointer absolute bg-error hover:bg-gray w-[44.56px] md:w-[120px] h-[14px] md:h-[35px] rounded-[12px] md:rounded-[24px] top-2 md:top-32 left-2 md:left-10 flex justify-center items-center"
+                  className="z-10 cursor-pointer absolute bg-error hover:bg-gray w-[44.56px] md:w-[120px] h-[14px] md:h-[35px] rounded-[12px] md:rounded-[24px] top-16 md:top-32 left-7 md:left-10 flex justify-center items-center"
                 >
-                  - Daftar Saya
+                  <p className="text-[5.74px] md:text-[14px]">- Daftar Saya</p>
                 </button>
 
                 <div

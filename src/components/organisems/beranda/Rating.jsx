@@ -36,9 +36,9 @@ const Rating = () => {
 
                 <button
                   onClick={() => handleAddToMyList(movie.id)}
-                  className="z-10 cursor-pointer absolute bg-info hover:bg-infoHover w-[44.56px] md:w-[120px] h-[14px] md:h-[35px] rounded-[12px] md:rounded-[24px] top-2 md:top-40 left-2 md:left-16 flex justify-center items-center"
+                  className="z-10 cursor-pointer absolute bg-info hover:bg-infoHover w-[44.56px] md:w-[120px] h-[14px] md:h-[35px] rounded-[12px] md:rounded-[24px] top-16 md:top-40 left-7 md:left-16 flex justify-center items-center"
                 >
-                  + Daftar Saya
+                  <p className="text-[5.74px] md:text-[14px]">+ Daftar Saya</p>
                 </button>
 
                 <div

@@ -9,7 +9,7 @@ const Navbar = () => {
   const menu = [
     { name: "Series", path: "/beranda" },
     { name: "Film", path: "/beranda" },
-    { name: "Daftar Saya", path: "/beranda" },
+    { name: "Daftar Saya", path: "/profil" },
   ];
 
   const navigate = useNavigate();
