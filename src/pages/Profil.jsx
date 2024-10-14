@@ -1,5 +1,5 @@
 import Navbar from "../components/organisems/body/Navbar";
-import MyProfil from "../components/organisems/profil/myProfil";
+import MyProfil from "../components/organisems/profil/MyProfil";
 import MyList from "../components/organisems/profil/MyList";
 import Footer from "../components/organisems/body/Footer";
 
