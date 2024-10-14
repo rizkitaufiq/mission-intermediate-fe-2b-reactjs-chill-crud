@@ -27,7 +27,7 @@ const MyList = () => {
       <section className="relative p-2 text-white overflow-hidden">
         <div className="p-4">
           <h3 className="text-white font-bold text-[20px] md:text-[32px] mt-5 md:mt-10 mb-4">
-            Rilis Baru
+            Daftar Saya
           </h3>
 
           <div className="relative flex flex-wrap gap-2 md:gap-5 mb-4 w-full overflow-scroll md:overflow-hidden">
