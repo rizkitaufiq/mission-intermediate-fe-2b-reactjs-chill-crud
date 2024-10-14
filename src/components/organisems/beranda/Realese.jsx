@@ -48,7 +48,7 @@ const Realese = () => {
 
                 <button
                   onClick={() => handleAddToMyList(movie.id)}
-                  className="z-10 cursor-pointer absolute bg-primary hover:bg-gray w-[44.56px] md:w-[120px] h-[14px] md:h-[35px] rounded-[12px] md:rounded-[24px] top-2 md:top-40 left-2 md:left-16 flex justify-center items-center"
+                  className="z-10 cursor-pointer absolute bg-info hover:bg-infoHover w-[44.56px] md:w-[120px] h-[14px] md:h-[35px] rounded-[12px] md:rounded-[24px] top-2 md:top-40 left-2 md:left-16 flex justify-center items-center"
                 >
                   + Daftar Saya
                 </button>
