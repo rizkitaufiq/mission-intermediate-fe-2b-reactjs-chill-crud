@@ -1,18 +1,35 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+// import { useNavigate } from "react-router-dom";
 
-// import newRelease from "../../../store/beranda/newRelease";
-import newRelease from "../../../databases/beranda/newRelease.json";
+import newRelease from "../../../store/beranda/newRelease";
+import myList from "../../../store/profil/myList";
+// import newRelease from "../../../databases/beranda/newRelease.json";
+// import myList from "../../../databases/profil/myList.json";
 
 import rightArrow from "../../../assets/images/beranda/icon/right-arrow.svg";
 import leftArrow from "../../../assets/images/beranda/icon/left-arrow.svg";
 
 const Realese = () => {
-  // const { movies } = newRelease();
-  const [movies, setMovies] = useState([]);
+  const { movies } = newRelease();
+  const { addToMyList } = myList();
+  // const navigate = useNavigate();
+  // const [movies, setMovies] = useState([]);
+  // const [myList, setMyList] = useState([]);
 
-  useEffect(() => {
-    setMovies(newRelease);
-  }, []);
+  // useEffect(() => {
+  //   setMovies(newRelease);
+  // }, []);
+
+  const handleAddToMyList = (id) => {
+    const movie = movies.find((movie) => movie.id === id);
+    if (movie) {
+      addToMyList(movie);
+      // navigate("/profil");
+    } else {
+      toast.error("Film Tidak Ditemukan!");
+    }
+  };
 
   return (
     <div>
@@ -23,11 +40,18 @@ const Realese = () => {
           </h3>
 
           <div className="relative flex gap-5 md:gap-8 mb-4 w-full overflow-scroll md:overflow-hidden">
-            {movies.map((movie, index) => (
-              <div key={index} className="relative">
+            {movies.map((movie) => (
+              <div key={movie.id} className="relative">
                 <div className="w-[95px] md:w-[234px]">
                   <img src={movie.poster} alt="image" />
                 </div>
+
+                <button
+                  onClick={() => handleAddToMyList(movie.id)}
+                  className="z-10 cursor-pointer absolute bg-primary hover:bg-gray w-[44.56px] md:w-[120px] h-[14px] md:h-[35px] rounded-[12px] md:rounded-[24px] top-2 md:top-40 left-2 md:left-16 flex justify-center items-center"
+                >
+                  + Daftar Saya
+                </button>
 
                 <div
                   className={`${
