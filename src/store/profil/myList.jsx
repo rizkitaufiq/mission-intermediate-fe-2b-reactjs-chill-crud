@@ -57,6 +57,13 @@ const myList = create((set, get) => ({
       toast.error("Film Sudah Ada di Daftar Anda!");
     }
   },
+
+  removeFromMyList: (id) => {
+    set((state) => ({
+      movies: state.movies.filter((item) => item.id !== id),
+    }));
+    toast.success("Film Dihapus Dari Daftar Saya");
+  },
 }));
 
 export default myList;

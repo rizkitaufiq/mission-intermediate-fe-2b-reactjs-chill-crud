@@ -5,7 +5,17 @@ import myList from "../../../store/profil/myList";
 // import myList from "../../../databases/profil/myList.json";
 
 const MyList = () => {
-  const { movies } = myList();
+  const { movies, removeFromMyList } = myList();
+
+  const handleRemoveFromMyList = (id) => {
+    const movie = movies.find((data) => data.id === id);
+    if (
+      movie &&
+      window.confirm("Yakin Menghapus Film Ini dari Daftar List Anda ?")
+    ) {
+      removeFromMyList(id);
+    }
+  };
 
   //   const [movies, setMovies] = useState([]);
 
@@ -21,11 +31,18 @@ const MyList = () => {
           </h3>
 
           <div className="relative flex flex-wrap gap-2 md:gap-5 mb-4 w-full overflow-scroll md:overflow-hidden">
-            {movies.map((movie, index) => (
-              <div key={index} className="relative w-1/7">
+            {movies.map((movie) => (
+              <div key={movie.id} className="relative w-1/7">
                 <div className="w-[95px] lg:w-[200px] h-[145px] lg:h-[300px]">
                   <img src={movie.poster} alt="image" />
                 </div>
+
+                <button
+                  onClick={() => handleRemoveFromMyList(movie.id)}
+                  className="z-10 cursor-pointer absolute bg-error hover:bg-gray w-[44.56px] md:w-[120px] h-[14px] md:h-[35px] rounded-[12px] md:rounded-[24px] top-2 md:top-32 left-2 md:left-10 flex justify-center items-center"
+                >
+                  - Daftar Saya
+                </button>
 
                 <div
                   className={`${
