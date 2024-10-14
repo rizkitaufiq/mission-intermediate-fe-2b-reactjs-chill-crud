@@ -77,7 +77,7 @@ const MyProfil = () => {
                 label="Nama Pengguna"
                 textInputColor="text-white"
                 autoComplete="username"
-                value={userData.username || ""}
+                value={userData.username}
                 onChange={handleChange}
               >
                 <img
@@ -111,7 +111,7 @@ const MyProfil = () => {
                 label="Kata Sandi"
                 textInputColor="text-white"
                 autoComplete="new-password"
-                value={userData.password || ""}
+                value={userData.password}
                 onChange={handleChange}
               >
                 <img
