@@ -3,6 +3,20 @@
 - React Router DOM
 - Tailwindcss
 - Tailwindcss line-clamp
+- React Toastify
+
+# Function
+- Auth
+  - Login
+  - Register
+  - Read Data Users 
+  - Update Profil
+
+- Beranda
+  - Create Function to My List Data
+
+- Profil
+  - Delete function to My List Data
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
