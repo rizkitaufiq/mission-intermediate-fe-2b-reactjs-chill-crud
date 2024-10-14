@@ -1,9 +1,24 @@
+import { toast } from "react-toastify";
+
 import trendingMovies from "../../../store/beranda/trendingMovies";
+import myList from "../../../store/profil/myList";
+
 import rightArrow from "../../../assets/images/beranda/icon/right-arrow.svg";
 import leftArrow from "../../../assets/images/beranda/icon/left-arrow.svg";
 
 const Trending = () => {
   const { movies } = trendingMovies();
+  const { addToMyList } = myList();
+
+  const handleAddToMyList = (id) => {
+    const movie = movies.find((movie) => movie.id === id);
+    if (movie) {
+      addToMyList(movie);
+    } else {
+      toast.error("Film Tidak Ditemukan!");
+    }
+  };
+
   return (
     <div>
       <section className="relative p-2 text-white overflow-hidden">
@@ -18,6 +33,14 @@ const Trending = () => {
                 <div className="w-[95px] md:w-[234px]">
                   <img src={movie.poster} alt="image" />
                 </div>
+
+                <button
+                  onClick={() => handleAddToMyList(movie.id)}
+                  className="z-10 cursor-pointer absolute bg-info hover:bg-infoHover w-[44.56px] md:w-[120px] h-[14px] md:h-[35px] rounded-[12px] md:rounded-[24px] top-16 md:top-40 left-7 md:left-16 flex justify-center items-center"
+                >
+                  <p className="text-[5.74px] md:text-[14px]">+ Daftar Saya</p>
+                </button>
+
                 <div
                   className={`${
                     movie.trending == "" ? "hidden" : ""
